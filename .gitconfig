@@ -1,0 +1,51 @@
+
+[user]
+	name = amamane
+	email = none
+[push]
+	default = simple
+[color]
+	ui = auto
+[pretty]
+	# oneline log format with short hash, relative date, committer name, branch info, short comment
+	onelinerelativedate = "tformat:%C(yellow)%h%Creset %cr %C(blue)%<(7,trunc)%cn%Creset -%C(auto)%d%Creset %s"
+	onelineabsolutedate = "tformat:%C(yellow)%h%Creset %ci %C(blue)%<(7,trunc)%cn%Creset -%C(auto)%d%Creset %s"
+[alias]
+	co = checkout
+	b = branch
+	st = status
+	s = status -s
+	a = add
+	ci = commit
+	
+	f = fetch -p
+	pullr = pull --rebase=preserve
+	p = push
+
+	l = log --graph --pretty=onelinerelativedate
+	la = log --graph --pretty=onelinerelativedate --all
+	ls = log --graph --pretty=onelinerelativedate --name-status
+	las = log --graph --pretty=onelinerelativedate --all --name-status
+	ld = log --graph --pretty=onelineabsolutedate --date=short
+
+	# minimal word diff
+	d = diff --unified=0 --ignore-space-at-eol --color-words='[[:alnum:]]+|[^[:space:]]'
+	dc = diff --unified=0 --ignore-space-at-eol --color-words='[[:alnum:]]+|[^[:space:]]' --cached
+	dh = diff --unified=0 --ignore-space-at-eol --color-words='[[:alnum:]]+|[^[:space:]]' HEAD^!
+
+	# graphic diff
+	dt = difftool
+	dtc = difftool --cached
+	dth = difftool HEAD^!
+
+[core]
+	pager = less -R
+[difftool]
+	prompt = false
+[diff]
+	tool = meld
+[merge]
+	tool = meld
+[mergetool]
+	keepBackup = false
+	keepTemporaries = false
